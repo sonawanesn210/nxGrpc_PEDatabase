@@ -1,0 +1,28 @@
+
+syntax = "proto3";
+import "google/protobuf/any.proto";
+package product;
+
+
+message ProductRequest {
+  
+  string title = 1;
+  string price = 2;
+}
+
+
+message ProductResponse {
+   
+   string title = 1;
+   string price = 2;
+}
+
+message Empty{}
+
+service ProductServiceInterface {
+  rpc GetProduct (Empty) returns (ProductResponse);
+  rpc AddProduct (ProductRequest) returns (ProductResponse);
+  rpc UpdateProduct (ProductRequest) returns (ProductResponse);
+  rpc DeleteProduct (ProductRequest) returns (Empty);
+  
+}
